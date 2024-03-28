@@ -1,0 +1,58 @@
+.poke-card {
+    max-width: 30vh;
+    border-radius: 20px;
+    background-color: white;
+    padding:10px;
+    margin-top: 20px;
+    text-align: center;
+    transition: transform 0.5s;
+}
+
+
+.poke-card:hover {
+  transform: rotateY(15deg) rotateX(15deg);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+table {
+    margin: 0 auto;
+}
+.poke-name {
+    font-family: "Rakkas", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+h1 {
+    color: white;
+}
+
+.pokeImg {
+    height: 10vh;
+}
+.poke-audio{
+    max-width: 25vh;
+}
+
+.poke-experience {
+    background-color: rgb(74, 74, 253);
+    color: white;
+    border-radius: 10px;
+    max-width: 10vh;
+    padding: 2px;
+    align-self: flex-end;
+}
+
+.pagination {
+    margin-top: 5vh;
+    padding-bottom: 5vh;
+    justify-content: center;
+  }
+  .page-link {
+    color: #fff;
+    background-color: #343a40; /* Dark background color */
+    border-color: #343a40; /* Dark border color */
+  }
+  .page-link:hover {
+    background-color: #23272b; /* Darker background color on hover */
+    border-color: #23272b; /* Darker border color on hover */
+  }
