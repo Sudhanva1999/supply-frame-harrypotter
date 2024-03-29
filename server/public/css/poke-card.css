@@ -56,3 +56,20 @@ h1 {
     background-color: #23272b; /* Darker background color on hover */
     border-color: #23272b; /* Darker border color on hover */
   }
+
+  .poke-table-stats {
+    font-size: 12px; 
+    border-bottom: 1px solid rgb(180, 180, 180);
+
+  }
+  .poke-table-heading {
+border-right: 1px solid rgb(180, 180, 180);
+border-bottom: 1px solid rgb(180, 180, 180);
+  }
+
+  @media (max-width: 425px) {
+    
+    .poke-card {
+      max-width: 90vh;
+    }
+  }

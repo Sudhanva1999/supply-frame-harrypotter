@@ -18,7 +18,25 @@
 .pokemon-forms-img {
     height: 20vh;
 }
-
+.poke-forms{
+    display: inline-block;
+    margin: 2vh;
+}
+.form-heading{
+    font-weight: 700 ;
+}
 table{
     width: 100%;
 }
+.poke-type-gif{
+    height: 10vh;
+}
+@media (max-width: 425px) {
+    
+    .poke-name-single {
+      font-size: 5vh;
+    }
+    .table-responsive {
+        overflow-x: auto;
+    }
+  }

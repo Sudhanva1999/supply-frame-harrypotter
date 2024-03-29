@@ -14,8 +14,7 @@
     <link type="text/css" rel="stylesheet" href='/css/poke-card.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
   </head>
   <body>
@@ -44,7 +43,7 @@
         id="navbarTogglerDemo02">
         <ul class="navbar-nav mx-auto p-2">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Pokemons</a>
@@ -70,41 +69,39 @@
           </div>
           <div>
             <img class="pokeImg"
-              src="<%= pokemon.sprites.other.showdown.front_default%>"
-              alt="Pokemon Image">
+              src="<%= pokemon.pokemonMainImg %>"
+              alt="Pokemon Image"
+              />
           </div>
           <div class="poke-name"> <%= pokemon.name.toUpperCase() %> </div>
           <hr>
-          <table>
+          <table >
             <tr>
-              <th>Height</th>
-              <td><%= (pokemon.height* 3.9).toFixed(2) %> inches</td>
+              <th class="poke-table-heading"> <img class="stat-icon" width="48" height="48" src="https://img.icons8.com/fluency-systems-filled/48/height.png" alt="height"/> Height</th>
+              <td class="poke-table-stats"><%= (pokemon.height* 3.9).toFixed(2) %> inches</td>
             </tr>
             <tr>
-              <th>Weight</th>
-              <td><%= (pokemon.weight * 0.1).toFixed(2) %> kg</td>
+              <th class="poke-table-heading"><img class="stat-icon" width="24" height="24" src="https://img.icons8.com/material-sharp/24/weight-kg.png" alt="weight-kg"/>Weight</th>
+              <td class="poke-table-stats"><%= (pokemon.weight * 0.1).toFixed(2) %> kg</td>
             </tr>
             <tr>
-              <th>Height</th>
-              <td><%= pokemon.height %></td>
+              <th class="poke-table-heading"><img class="stat-icon" width="64" height="64" src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/external-ability-business-motivation-wanicon-lineal-wanicon.png" alt="external-ability-business-motivation-wanicon-lineal-wanicon"/>Ability</th>
+              <td class="poke-table-stats"><%= pokemon.abilities[0].ability.name %></td>
             </tr>
             <tr>
-              <th>Ability</th>
-              <td><%= pokemon.abilities[0].ability.name %></td>
+              <th class="poke-table-heading">Type</th>
+              <td class="poke-table-stats"><%= pokemon.types[0].type.name.toUpperCase() %></td>
             </tr>
           </table>
           <div></div>
-          <audio controls class="poke-audio">
-            <source src="<%= pokemon.cries.legacy%>" type="audio/ogg">
-            Your browser does not support the audio element.
-          </audio>
+         
         </div>
       </div>
       <% }); %>
       </div>
       <div class="pagination">
         <a class="page-link" href="/list?page=1">Previous</a>
-        <% for (let i = 1; i <= 10; i++) { %>
+        <% for (let i = 1; i <= 15; i++) { %>
           <a class="page-link" href="/list?page=<%= i %>"><%= i %></a>
         <% } %>
         <a class="page-link" href="/list?page=<%= 10 %>">Next</a>

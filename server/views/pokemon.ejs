@@ -12,10 +12,10 @@
     <link type="text/css" rel="stylesheet" href='/css/styles.css'>
     <link type="text/css" rel="stylesheet" href='/css/nav.css'>
     <link type="text/css" rel="stylesheet" href='/css/pokemon.css'>
+    <link type="text/css" rel="stylesheet" href='/css/poke-card.css'>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Rakkas&display=swap"
-      rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
 
   </head>
   <body>
@@ -44,7 +44,7 @@
         id="navbarTogglerDemo02">
         <ul class="navbar-nav mx-auto p-2">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home</a>
+            <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Pokemons</a>
@@ -66,52 +66,136 @@
                 <div class="poke-name-single"> <%= pokemon.name.toUpperCase() %> </div>
                 <div>
                     <img class="pokeImgSingle"
-                      src="<%= pokemon.sprites.other.showdown.front_default%>"
-                      alt="Pokemon Image">
-                  </div>
+                    src="<%= pokemon.pokemonMainImg %>"
+                    alt="Pokemon Image">
+                    
+                </div>
+                <div class="table-responsive">
+                        <table >
+                            <tr>
+                                <td>
+                                    <tr>
+                                        <th><img class="stat-icon" width="48" height="48" src="https://img.icons8.com/fluency-systems-filled/48/height.png" alt="height"/>Height</th>
+                                        <th><img class="stat-icon" width="24" height="24" src="https://img.icons8.com/material-sharp/24/weight-kg.png" alt="weight-kg"/>Weight</th>
+                                        <th><img class="stat-icon" width="64" height="64" src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/external-ability-business-motivation-wanicon-lineal-wanicon.png" alt="external-ability-business-motivation-wanicon-lineal-wanicon"/>Ability</th>
+                                        <th rowspan="2">Type <br>
+                                            <img class="poke-type-gif" src="/images/gifs/<%= pokemon.types[0].type.name.toLowerCase()%>.gif" >
+                                        </th>
+                                    </tr>
+                                    <tr>
+                                        <td><%= (pokemon.height* 3.9).toFixed(2) %> inches</td>
+                                        <td><%= (pokemon.weight * 0.1).toFixed(2) %> kg</td>
+                                        <td><%= pokemon.abilities[0].ability.name %></td>
+                                    </tr>
+                                </td>
+                            </tr>
+                        </table>
+                        </div> 
+                    
+                
                 <hr>
-                Forms in Media 
-                <table>
-                    <tr>
-                        <td>
-                            <div>Dream World</div>
-                            <img class="pokemon-forms-img"
-                                src="<%= pokemon.sprites.other.dream_world.front_default%>"
-                                alt="Pokemon Image">
-                        </td>
-                        <td>
-                            <div>Home World</div>
-                            <img class="pokemon-forms-img"
-                                src="<%= pokemon.sprites.other.home.front_default%>"
-                                alt="Pokemon Image">
-                        </td>
-                        <td>
-                            <div>Video Game Form</div>
-                            <img class="pokemon-forms-img"
-                                src="<%= pokemon.sprites.front_default%>"
-                                alt="Pokemon Image">
-                        </td>
-                        <td>
-                            <div>Video Game Shiny</div>
-                            <img class="pokemon-forms-img"
-                                src="<%= pokemon.sprites.front_shiny%>"
-                                alt="Pokemon Image">
-                        </td>
-                        
-                    </tr>
-                    <tr>
-                            <td colspan="4">
-                                <div>Shiny form</div>
-                                <img class="pokemon-forms-img"
-                                    src="<%= pokemon.sprites.other.showdown.front_shiny%>"
-                                    alt="Pokemon Image">
-                            </td>
-                    </tr>
-                </table>
-             
+                <div>
+                    <strong>Portrayal in Media</strong> 
+                </div>
+               
+                <div class="poke-forms">
+                    <div class="form-heading">Dream World</div>
+                    <img class="pokemon-forms-img"
+                        src="<%= pokemon.sprites.other.dream_world.front_default%>"
+                        alt="Pokemon Image">
 
+                </div>
+                <div class="poke-forms">
+                    <div class="form-heading">Home World</div>
+                    <img class="pokemon-forms-img"
+                        src="<%= pokemon.sprites.other.home.front_default%>"
+                        alt="Pokemon Image">
+                    
+                </div>
+                <div class="poke-forms">
+                    <div class="form-heading">Video Game Form</div>
+                                <img class="pokemon-forms-img"
+                                    src="<%= pokemon.sprites.front_default%>"
+                                    alt="Pokemon Image">
+                    
+                </div>
+                <div class="poke-forms">
+                    <div class="form-heading">Video Game Shiny</div>
+                    <img class="pokemon-forms-img"
+                        src="<%= pokemon.sprites.front_shiny%>"
+                        alt="Pokemon Image">
+                    
+                </div>
+                <div class="poke-forms">
+                    <td colspan="4">
+                        <div class="form-heading">Shiny form</div>
+                        <img class="pokemon-forms-img"
+                            src="<%= pokemon.sprites.other.showdown.front_shiny%>"
+                            alt="Pokemon Image">
+                    </td>
+                    
+                </div> 
+                <hr>
+                <h3>Check out these similar pokemons !</h3>
+                <div class="container">
+                    <div class="row">
+                <% pokemonDataArray.forEach(similarPokemon => { %>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="poke-card" onclick="openPokemonPage('<%= similarPokemon.id %>')">
+                        <div class="poke-experience">
+                            <strong>Exp </strong> <%= similarPokemon.base_experience %>
+                        </div>
+                        <div>
+                            <img class="pokeImg"
+                            src="<%= similarPokemon.pokemonMainImg%>"
+                            alt="Pokemon Image">
+                        </div>
+                        <div class="poke-name"> <%= similarPokemon.name.toUpperCase() %> </div>
+                        <hr>
+                        <table >
+                            <tr>
+                            <th class="poke-table-heading"> <img class="stat-icon" width="48" height="48" src="https://img.icons8.com/fluency-systems-filled/48/height.png" alt="height"/> Height</th>
+                            <td class="poke-table-stats"><%= (similarPokemon.height* 3.9).toFixed(2) %> inches</td>
+                            </tr>
+                            <tr>
+                            <th class="poke-table-heading"><img class="stat-icon" width="24" height="24" src="https://img.icons8.com/material-sharp/24/weight-kg.png" alt="weight-kg"/>Weight</th>
+                            <td class="poke-table-stats"><%= (similarPokemon.weight * 0.1).toFixed(2) %> kg</td>
+                            </tr>
+                            <tr>
+                            <th class="poke-table-heading"><img class="stat-icon" width="64" height="64" src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/external-ability-business-motivation-wanicon-lineal-wanicon.png" alt="external-ability-business-motivation-wanicon-lineal-wanicon"/>Ability</th>
+                            <td class="poke-table-stats"><%= similarPokemon.abilities[0].ability.name %></td>
+                            </tr>
+                            <tr>
+                            <th class="poke-table-heading">Type</th>
+                            <td class="poke-table-stats"><%= similarPokemon.types[0].type.name.toUpperCase() %></td>
+                            </tr>
+                        </table>
+                        </div>
+                    </div>
+                <% }); %>
+                    </div>
+                    </div>
             </div>
       </div>
+      <script>
+        function openPokemonPage(pokemonData) {
+          const form = document.createElement('form');
+        form.method = 'GET'; 
+        form.action = '/pokemon';
+       
+        const input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'pokemonId';
+        input.value = pokemonData;
+        console.log(pokemonData);
+
+        form.appendChild(input);
+
+       
+        document.body.appendChild(form);
+        form.submit();
+          }
+    </script>
 
   </body>
 </html>
