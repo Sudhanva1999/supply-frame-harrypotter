@@ -47,7 +47,7 @@
             <a class="nav-link" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Pokemons</a>
+            <a class="nav-link" href="/list">Pokemons</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Berries</a>
@@ -98,43 +98,55 @@
                     <strong>Portrayal in Media</strong> 
                 </div>
                
-                <div class="poke-forms">
-                    <div class="form-heading">Dream World</div>
-                    <img class="pokemon-forms-img"
-                        src="<%= pokemon.sprites.other.dream_world.front_default%>"
-                        alt="Pokemon Image">
-
-                </div>
-                <div class="poke-forms">
-                    <div class="form-heading">Home World</div>
-                    <img class="pokemon-forms-img"
-                        src="<%= pokemon.sprites.other.home.front_default%>"
-                        alt="Pokemon Image">
-                    
-                </div>
+                <% if (pokemon.sprites.other.dream_world.front_default) { %>
+                    <div class="poke-forms">
+                        <div class="form-heading">Dream World</div>
+                        <img class="pokemon-forms-img"
+                            src="<%= pokemon.sprites.other.dream_world.front_default%>"
+                            alt="Pokemon Image">
+    
+                    </div>
+                <% } %>
+                <% if (pokemon.sprites.other.home.front_default) { %>
+                    <div class="poke-forms">
+                        <div class="form-heading">Home World</div>
+                        <img class="pokemon-forms-img"
+                            src="<%= pokemon.sprites.other.home.front_default%>"
+                            alt="Pokemon Image">
+                        
+                    </div>
+                <% } %>
+                <% if (pokemon.sprites.front_default) { %>
                 <div class="poke-forms">
                     <div class="form-heading">Video Game Form</div>
                                 <img class="pokemon-forms-img"
                                     src="<%= pokemon.sprites.front_default%>"
                                     alt="Pokemon Image">
-                    
                 </div>
-                <div class="poke-forms">
-                    <div class="form-heading">Video Game Shiny</div>
-                    <img class="pokemon-forms-img"
-                        src="<%= pokemon.sprites.front_shiny%>"
-                        alt="Pokemon Image">
-                    
-                </div>
-                <div class="poke-forms">
-                    <td colspan="4">
-                        <div class="form-heading">Shiny form</div>
+                <% } %>
+                <% if (pokemon.sprites.front_shiny) { %>
+                    <div class="poke-forms">
+                        <div class="form-heading">Video Game Shiny</div>
                         <img class="pokemon-forms-img"
-                            src="<%= pokemon.sprites.other.showdown.front_shiny%>"
+                            src="<%= pokemon.sprites.front_shiny%>"
                             alt="Pokemon Image">
-                    </td>
-                    
-                </div> 
+                        
+                    </div>
+                    <% } %>
+                <% if (pokemon.sprites.other.showdown.front_shiny) { %>
+                    <div class="poke-forms">
+                        <td colspan="4">
+                            <div class="form-heading">Shiny form</div>
+                            <img class="pokemon-forms-img"
+                                src="<%= pokemon.sprites.other.showdown.front_shiny%>"
+                                alt="Pokemon Image">
+                        </td>
+                        
+                    </div> 
+                <% } %>
+             
+             
+            
                 <hr>
                 <h3>Check out these similar pokemons !</h3>
                 <div class="container">
