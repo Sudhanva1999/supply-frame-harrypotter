@@ -12,6 +12,7 @@ app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/resources'));
+app.use(express.static(__dirname + '/views'));
 
 
 function cacheMiddleware(req, res, next) {
@@ -46,7 +47,7 @@ app.get('/', cacheMiddleware, async (req, res) => {
 });
 
 
-app.get('/list', cacheMiddleware, async (req, res) => {
+app.get('/pokedex', cacheMiddleware, async (req, res) => {
     try {
         const page = parseInt(req.query.page) || 1;
         const pageSize = 20;
@@ -67,7 +68,7 @@ app.get('/list', cacheMiddleware, async (req, res) => {
             }
             cache.set(cacheKey, pokemonList);
         }
-        res.render('list', { pokemonList, currentPage });
+        res.render('pokedex', { pokemonList, currentPage });
     } catch (error) {
         console.error('Error fetching Pokemon data:', error);
         res.status(500).send('Internal Server Error');
