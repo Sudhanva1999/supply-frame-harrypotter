@@ -13,6 +13,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(__dirname + '/public'));
 app.use(express.static(__dirname + '/resources'));
 
+
 function cacheMiddleware(req, res, next) {
     const cacheKey = req.originalUrl;
     const cachedData = cache.get(cacheKey);
@@ -28,6 +29,13 @@ function cacheMiddleware(req, res, next) {
     }
 }
 
+
+async function fetchPokemonData(url) {
+    const response = await axios.get(url);
+    return response.data;
+}
+
+
 app.get('/', cacheMiddleware, async (req, res) => {
     try {
         res.render('index');
@@ -37,9 +45,9 @@ app.get('/', cacheMiddleware, async (req, res) => {
     }
 });
 
+
 app.get('/list', cacheMiddleware, async (req, res) => {
     try {
-        let pokemonList = [];
         const page = parseInt(req.query.page) || 1;
         const pageSize = 20;
         const startIdx = (page - 1) * pageSize + 1;
@@ -47,12 +55,13 @@ app.get('/list', cacheMiddleware, async (req, res) => {
         const cacheKey = `${startIdx}-${endIdx}`;
         const currentPage = page;
         const cachedData = cache.get(cacheKey);
+        let pokemonList = [];
+
         if (cachedData) {
             pokemonList = cachedData;
         } else {
             for (let i = startIdx; i <= endIdx; i++) {
-                const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${i}/`);
-                const pokemonDetails = response.data;
+                const pokemonDetails = await fetchPokemonData(`https://pokeapi.co/api/v2/pokemon/${i}/`);
                 pokemonDetails.pokemonMainImg = pokemonDetails.sprites.other.showdown.front_default || pokemonDetails.sprites.other.home.front_default;
                 pokemonList.push(pokemonDetails);
             }
@@ -65,39 +74,48 @@ app.get('/list', cacheMiddleware, async (req, res) => {
     }
 });
 
-function shuffleArray(array) {
-  for (let i = array.length - 1; i > 0; i--) {
-      const j = Math.floor(Math.random() * (i + 1));
-      [array[i], array[j]] = [array[j], array[i]];
-  }
-  return array;
-}
-
 app.get('/pokemon', cacheMiddleware, async (req, res) => {
-    try {
-        const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${req.query.pokemonId}/`);
-        const pokemon = response.data;
-        pokemon.pokemonMainImg = pokemon.sprites.other.showdown.front_default || pokemon.sprites.other.home.front_default;
+  try {
+      const pokemonId = req.query.pokemonId;
+      const cachedPokemon = cache.get(pokemonId);
+      if (cachedPokemon) {
+          return res.render('pokemon', { pokemon: cachedPokemon, pokemonDataArray: [] });
+      }
+    
+      const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`);
+      const pokemon = response.data;
+      pokemon.pokemonMainImg = pokemon.sprites.other.showdown.front_default || pokemon.sprites.other.home.front_default;
+      cache.set(pokemonId, pokemon);
 
-        const typeResponse = await axios.get(pokemon.types[0].type.url);
-      
-        const allSamePokemons = shuffleArray(typeResponse.data.pokemon).slice(0, 8);
-        const pokemonDataArray = [];
+      const typeResponse = await axios.get(pokemon.types[0].type.url);
+      const allSamePokemons = shuffleArray(typeResponse.data.pokemon).slice(0, 8);
+      const pokemonDataArray = [];
 
-        for (const samePokemon of allSamePokemons) {
-            if (samePokemon.pokemon.name !== pokemon.name) {
-                const pokemonResponse = await axios.get(samePokemon.pokemon.url);
-                const tempPokemon = pokemonResponse.data;
-                tempPokemon.pokemonMainImg = tempPokemon.sprites.other.showdown.front_default || tempPokemon.sprites.other.home.front_default;
-                pokemonDataArray.push(pokemonResponse.data);
-            }
-        }
-        res.render('pokemon', { pokemon, pokemonDataArray });
-    } catch (error) {
-        console.error('Error fetching Pokemon data:', error);
-        res.status(500).send('Internal Server Error');
-    }
+      for (const samePokemon of allSamePokemons) {
+          if (samePokemon.pokemon.name !== pokemon.name) {
+              const pokemonResponse = await axios.get(samePokemon.pokemon.url);
+              const tempPokemon = pokemonResponse.data;
+              tempPokemon.pokemonMainImg = tempPokemon.sprites.other.showdown.front_default || tempPokemon.sprites.other.home.front_default;
+              pokemonDataArray.push(tempPokemon);
+          }
+      }
+
+
+      res.render('pokemon', { pokemon, pokemonDataArray });
+  } catch (error) {
+      console.error('Error fetching Pokemon data:', error);
+      res.status(500).send('Internal Server Error');
+  }
 });
+
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
 
 app.listen(PORT, HOST, () => {
     console.log(`Server is running on http://${HOST}:${PORT}`);

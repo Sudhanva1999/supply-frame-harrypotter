@@ -16,6 +16,9 @@
     font-weight: 800;
 }
 
+.container {
+    margin-bottom: 5vh;
+}
 .poke-name-single{
     font-weight: 900;
     font-size: 10vh;
