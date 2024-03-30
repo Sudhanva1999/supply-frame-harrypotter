@@ -14,6 +14,11 @@
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
+.poke-card:hover .pokeImg {
+  transform: scale(2); 
+}
+
+
 table {
     margin: 0 auto;
 }
@@ -28,6 +33,7 @@ h1 {
 
 .pokeImg {
     height: 10vh;
+    transition: transform 0.3s ease-in-out;
 }
 .poke-audio{
     max-width: 25vh;
@@ -47,15 +53,7 @@ h1 {
     padding-bottom: 5vh;
     justify-content: center;
   }
-  .page-link {
-    color: #fff;
-    background-color: #343a40; /* Dark background color */
-    border-color: #343a40; /* Dark border color */
-  }
-  .page-link:hover {
-    background-color: #23272b; /* Darker background color on hover */
-    border-color: #23272b; /* Darker border color on hover */
-  }
+
 
   .poke-table-stats {
     font-size: 12px; 
@@ -66,6 +64,27 @@ h1 {
 border-right: 1px solid rgb(180, 180, 180);
 border-bottom: 1px solid rgb(180, 180, 180);
   }
+
+  .scroll-progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 5px; /* Height of the progress bar */
+    background-color: #ff0000; /* Color of the progress bar */
+    z-index: 999; /* Ensure it's above other elements */
+}
+#searchSuggestions {
+  color:  rgb(74, 74, 253);
+  background-color: white;
+  border-radius: 10px;
+  width: 50vh;
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
 
   @media (max-width: 425px) {
     

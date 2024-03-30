@@ -2,12 +2,18 @@
     background-color: white;
     border-radius: 20px;
     text-align: center;
-    margin-bottom: 100px;
 }
 
 .pokeImgSingle {
     height: 20vh;
     
+}
+
+.suggestion-heading {
+    margin-top: 20px;
+    font-size: 60px;
+    color: white;
+    font-weight: 800;
 }
 
 .poke-name-single{
@@ -39,4 +45,8 @@ table{
     .table-responsive {
         overflow-x: auto;
     }
+
+.suggestion-heading {
+    font-size: 30px;
+}
   }

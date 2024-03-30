@@ -8,10 +8,6 @@ body {
 
 }
 
-#carouselIntro {
-    height:50vh;
-}
-
 .stat-icon{
   height: 20px;
   width:20px;
@@ -23,12 +19,20 @@ body {
 }
   
   .centered-intro {
+    margin-top: 20vh;
+    justify-content:center;
     background-color: white;
+    color: rgb(153, 170, 255);
+    padding:10px;
+  
+  }
+  .intro-impact{
+      font-size: 60px;
   }
 
   .button-intro {
     padding: 0.8em 1.8em;
-    border: 2px solid #17C3B2;
+    border: 2px solid #000000;
     position: relative;
     overflow: hidden;
     background-color: transparent;
@@ -37,7 +41,7 @@ body {
     font-size: 16px;
     transition: .3s;
     font-family: inherit;
-    color: #17C3B2;
+    color: #ffffff;
     margin-top: 10%;
    }
    
@@ -49,7 +53,7 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
-    background: #17C3B2;
+    background: #020202;
     transition: 1s ease;
     display: block;
     z-index: -1;
@@ -60,9 +64,16 @@ body {
    }
    
    .button-intro:hover {
-    color: #111;
+    color: #ffffff;
    }
   
   
-
+   @media (max-width: 425px) {
+    .centered-intro {
+      margin-top: 15vh;
+    }
+    .intro-impact{
+        font-size: 30px;
+    }
+  }
    

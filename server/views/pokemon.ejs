@@ -1,139 +1,150 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pokemon List</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous">
-    <link type="text/css" rel="stylesheet" href='/css/styles.css'>
-    <link type="text/css" rel="stylesheet" href='/css/nav.css'>
-    <link type="text/css" rel="stylesheet" href='/css/pokemon.css'>
-    <link type="text/css" rel="stylesheet" href='/css/poke-card.css'>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pokemon List</title>
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+            crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href='/css/styles.css'>
+        <link type="text/css" rel="stylesheet" href='/css/nav.css'>
+        <link type="text/css" rel="stylesheet" href='/css/pokemon.css'>
+        <link type="text/css" rel="stylesheet" href='/css/poke-card.css'>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap"
+            rel="stylesheet">
 
-  </head>
-  <body>
+    </head>
+    <body>
 
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-      crossorigin="anonymous"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-      crossorigin="anonymous"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-      crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
 
-    <nav class="navbar navbar-expand-lg navbar-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark">
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse"
-        data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+            <button class="navbar-toggler" type="button" data-toggle="collapse"
+                data-target="#navbarTogglerDemo02"
+                aria-controls="navbarTogglerDemo02"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-      <div class="collapse navbar-collapse nav-contents"
-        id="navbarTogglerDemo02">
-        <ul class="navbar-nav mx-auto p-2">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="/list">Pokemons</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Berries</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Moves</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+            <div class="collapse navbar-collapse nav-contents"
+                id="navbarTogglerDemo02">
+                <ul class="navbar-nav mx-auto p-2">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/list">Pokemons</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
 
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class=" pokediv">
+                    <div class="poke-name-single"> <%=
+                        pokemon.name.toUpperCase() %> </div>
+                    <div>
+                        <img class="pokeImgSingle"
+                            src="<%= pokemon.pokemonMainImg %>"
+                            alt="Pokemon Image">
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class=" pokediv">
-                <div class="poke-name-single"> <%= pokemon.name.toUpperCase() %> </div>
-                <div>
-                    <img class="pokeImgSingle"
-                    src="<%= pokemon.pokemonMainImg %>"
-                    alt="Pokemon Image">
-                    
-                </div>
-                <div class="table-responsive">
-                        <table >
+                    </div>
+                    <div class="table-responsive">
+                        <table>
                             <tr>
                                 <td>
                                     <tr>
-                                        <th><img class="stat-icon" width="48" height="48" src="https://img.icons8.com/fluency-systems-filled/48/height.png" alt="height"/>Height</th>
-                                        <th><img class="stat-icon" width="24" height="24" src="https://img.icons8.com/material-sharp/24/weight-kg.png" alt="weight-kg"/>Weight</th>
-                                        <th><img class="stat-icon" width="64" height="64" src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/external-ability-business-motivation-wanicon-lineal-wanicon.png" alt="external-ability-business-motivation-wanicon-lineal-wanicon"/>Ability</th>
+                                        <th><img class="stat-icon" width="48"
+                                                height="48"
+                                                src="https://img.icons8.com/fluency-systems-filled/48/height.png"
+                                                alt="height" />Height</th>
+                                        <th><img class="stat-icon" width="24"
+                                                height="24"
+                                                src="https://img.icons8.com/material-sharp/24/weight-kg.png"
+                                                alt="weight-kg" />Weight</th>
+                                        <th><img class="stat-icon" width="64"
+                                                height="64"
+                                                src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/external-ability-business-motivation-wanicon-lineal-wanicon.png"
+                                                alt="external-ability-business-motivation-wanicon-lineal-wanicon" />Ability</th>
                                         <th rowspan="2">Type <br>
-                                            <img class="poke-type-gif" src="/images/gifs/<%= pokemon.types[0].type.name.toLowerCase()%>.gif" >
+                                            <img class="poke-type-gif"
+                                                src="/images/gifs/<%= pokemon.types[0].type.name.toLowerCase()%>.gif">
                                         </th>
                                     </tr>
                                     <tr>
-                                        <td><%= (pokemon.height* 3.9).toFixed(2) %> inches</td>
-                                        <td><%= (pokemon.weight * 0.1).toFixed(2) %> kg</td>
-                                        <td><%= pokemon.abilities[0].ability.name %></td>
+                                        <td><%= (pokemon.height* 3.9).toFixed(2)
+                                            %> inches</td>
+                                        <td><%= (pokemon.weight *
+                                            0.1).toFixed(2) %> kg</td>
+                                        <td><%=
+                                            pokemon.abilities[0].ability.name
+                                            %></td>
                                     </tr>
                                 </td>
                             </tr>
                         </table>
-                        </div> 
-                    
-                
-                <hr>
-                <div>
-                    <strong>Portrayal in Media</strong> 
-                </div>
-               
-                <% if (pokemon.sprites.other.dream_world.front_default) { %>
+                    </div>
+
+                    <hr>
+                    <div>
+                        <strong>Portrayal in Media</strong>
+                    </div>
+
+                    <% if (pokemon.sprites.other.dream_world.front_default) { %>
                     <div class="poke-forms">
                         <div class="form-heading">Dream World</div>
                         <img class="pokemon-forms-img"
                             src="<%= pokemon.sprites.other.dream_world.front_default%>"
                             alt="Pokemon Image">
-    
+
                     </div>
-                <% } %>
-                <% if (pokemon.sprites.other.home.front_default) { %>
+                    <% } %>
+                    <% if (pokemon.sprites.other.home.front_default) { %>
                     <div class="poke-forms">
                         <div class="form-heading">Home World</div>
                         <img class="pokemon-forms-img"
                             src="<%= pokemon.sprites.other.home.front_default%>"
                             alt="Pokemon Image">
-                        
+
                     </div>
-                <% } %>
-                <% if (pokemon.sprites.front_default) { %>
-                <div class="poke-forms">
-                    <div class="form-heading">Video Game Form</div>
-                                <img class="pokemon-forms-img"
-                                    src="<%= pokemon.sprites.front_default%>"
-                                    alt="Pokemon Image">
-                </div>
-                <% } %>
-                <% if (pokemon.sprites.front_shiny) { %>
+                    <% } %>
+                    <% if (pokemon.sprites.front_default) { %>
+                    <div class="poke-forms">
+                        <div class="form-heading">Video Game Form</div>
+                        <img class="pokemon-forms-img"
+                            src="<%= pokemon.sprites.front_default%>"
+                            alt="Pokemon Image">
+                    </div>
+                    <% } %>
+                    <% if (pokemon.sprites.front_shiny) { %>
                     <div class="poke-forms">
                         <div class="form-heading">Video Game Shiny</div>
                         <img class="pokemon-forms-img"
                             src="<%= pokemon.sprites.front_shiny%>"
                             alt="Pokemon Image">
-                        
+
                     </div>
                     <% } %>
-                <% if (pokemon.sprites.other.showdown.front_shiny) { %>
+                    <% if (pokemon.sprites.other.showdown.front_shiny) { %>
                     <div class="poke-forms">
                         <td colspan="4">
                             <div class="form-heading">Shiny form</div>
@@ -141,55 +152,77 @@
                                 src="<%= pokemon.sprites.other.showdown.front_shiny%>"
                                 alt="Pokemon Image">
                         </td>
-                        
-                    </div> 
-                <% } %>
-             
-             
-            
-                <hr>
-                <h3>Check out these similar pokemons !</h3>
+
+                    </div>
+                    <% } %>
+                </div>
+                <h3 class="suggestion-heading">Check out similar pokemons !</h3>
                 <div class="container">
                     <div class="row">
-                <% pokemonDataArray.forEach(similarPokemon => { %>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="poke-card" onclick="openPokemonPage('<%= similarPokemon.id %>')">
-                        <div class="poke-experience">
-                            <strong>Exp </strong> <%= similarPokemon.base_experience %>
+                        <% pokemonDataArray.forEach(similarPokemon => { %>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="poke-card"
+                                onclick="openPokemonPage('<%= similarPokemon.id %>')">
+                                <div class="poke-experience">
+                                    <strong>Exp </strong> <%=
+                                    similarPokemon.base_experience %>
+                                </div>
+                                <div>
+                                    <img class="pokeImg"
+                                        src="<%= similarPokemon.pokemonMainImg%>"
+                                        alt="Pokemon Image">
+                                </div>
+                                <div class="poke-name"> <%=
+                                    similarPokemon.name.toUpperCase() %>
+                                </div>
+                                <hr>
+                                <table>
+                                    <tr>
+                                        <th class="poke-table-heading"> <img
+                                                class="stat-icon" width="48"
+                                                height="48"
+                                                src="https://img.icons8.com/fluency-systems-filled/48/height.png"
+                                                alt="height" /> Height</th>
+                                        <td class="poke-table-stats"><%=
+                                            (similarPokemon.height*
+                                            3.9).toFixed(2) %> inches</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="poke-table-heading"><img
+                                                class="stat-icon" width="24"
+                                                height="24"
+                                                src="https://img.icons8.com/material-sharp/24/weight-kg.png"
+                                                alt="weight-kg" />Weight</th>
+                                        <td class="poke-table-stats"><%=
+                                            (similarPokemon.weight *
+                                            0.1).toFixed(2) %> kg</td>
+                                    </tr>
+                                    <tr>
+                                        <th class="poke-table-heading"><img
+                                                class="stat-icon" width="64"
+                                                height="64"
+                                                src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/external-ability-business-motivation-wanicon-lineal-wanicon.png"
+                                                alt="external-ability-business-motivation-wanicon-lineal-wanicon" />Ability</th>
+                                        <td class="poke-table-stats"><%=
+                                            similarPokemon.abilities[0].ability.name
+                                            %></td>
+                                    </tr>
+                                    <tr>
+                                        <th
+                                            class="poke-table-heading">Type</th>
+                                        <td class="poke-table-stats"><%=
+                                            similarPokemon.types[0].type.name.toUpperCase()
+                                            %></td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
-                        <div>
-                            <img class="pokeImg"
-                            src="<%= similarPokemon.pokemonMainImg%>"
-                            alt="Pokemon Image">
-                        </div>
-                        <div class="poke-name"> <%= similarPokemon.name.toUpperCase() %> </div>
-                        <hr>
-                        <table >
-                            <tr>
-                            <th class="poke-table-heading"> <img class="stat-icon" width="48" height="48" src="https://img.icons8.com/fluency-systems-filled/48/height.png" alt="height"/> Height</th>
-                            <td class="poke-table-stats"><%= (similarPokemon.height* 3.9).toFixed(2) %> inches</td>
-                            </tr>
-                            <tr>
-                            <th class="poke-table-heading"><img class="stat-icon" width="24" height="24" src="https://img.icons8.com/material-sharp/24/weight-kg.png" alt="weight-kg"/>Weight</th>
-                            <td class="poke-table-stats"><%= (similarPokemon.weight * 0.1).toFixed(2) %> kg</td>
-                            </tr>
-                            <tr>
-                            <th class="poke-table-heading"><img class="stat-icon" width="64" height="64" src="https://img.icons8.com/external-wanicon-lineal-wanicon/64/external-ability-business-motivation-wanicon-lineal-wanicon.png" alt="external-ability-business-motivation-wanicon-lineal-wanicon"/>Ability</th>
-                            <td class="poke-table-stats"><%= similarPokemon.abilities[0].ability.name %></td>
-                            </tr>
-                            <tr>
-                            <th class="poke-table-heading">Type</th>
-                            <td class="poke-table-stats"><%= similarPokemon.types[0].type.name.toUpperCase() %></td>
-                            </tr>
-                        </table>
-                        </div>
+                        <% }); %>
                     </div>
-                <% }); %>
-                    </div>
-                    </div>
+                </div>
+
             </div>
-      </div>
-      <script>
+            <script>
         function openPokemonPage(pokemonData) {
           const form = document.createElement('form');
         form.method = 'GET'; 
@@ -199,15 +232,22 @@
         input.type = 'hidden';
         input.name = 'pokemonId';
         input.value = pokemonData;
-        console.log(pokemonData);
 
         form.appendChild(input);
-
-       
         document.body.appendChild(form);
         form.submit();
           }
+
+          window.addEventListener("scroll", function () {
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+            const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+            const clientHeight = document.documentElement.clientHeight || document.body.clientHeight;
+
+            const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+            document.getElementById("scrollProgressBar").style.width = scrollPercentage + "%";
+        });
+
     </script>
 
-  </body>
-</html>
+        </body>
+    </html>

@@ -11,6 +11,7 @@ const cache = new NodeCache({ stdTTL: 3600 });
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/resources'));
 
 function cacheMiddleware(req, res, next) {
     const cacheKey = req.originalUrl;
@@ -44,7 +45,7 @@ app.get('/list', cacheMiddleware, async (req, res) => {
         const startIdx = (page - 1) * pageSize + 1;
         const endIdx = startIdx + pageSize - 1;
         const cacheKey = `${startIdx}-${endIdx}`;
-
+        const currentPage = page;
         const cachedData = cache.get(cacheKey);
         if (cachedData) {
             pokemonList = cachedData;
@@ -57,15 +58,19 @@ app.get('/list', cacheMiddleware, async (req, res) => {
             }
             cache.set(cacheKey, pokemonList);
         }
-        res.render('list', { pokemonList });
+        res.render('list', { pokemonList, currentPage });
     } catch (error) {
         console.error('Error fetching Pokemon data:', error);
         res.status(500).send('Internal Server Error');
     }
 });
 
-function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+function shuffleArray(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
 }
 
 app.get('/pokemon', cacheMiddleware, async (req, res) => {
@@ -75,8 +80,8 @@ app.get('/pokemon', cacheMiddleware, async (req, res) => {
         pokemon.pokemonMainImg = pokemon.sprites.other.showdown.front_default || pokemon.sprites.other.home.front_default;
 
         const typeResponse = await axios.get(pokemon.types[0].type.url);
-        const samePokeLimit = getRandomInt(180);
-        const allSamePokemons = typeResponse.data.pokemon.slice(samePokeLimit, samePokeLimit + 8);
+      
+        const allSamePokemons = shuffleArray(typeResponse.data.pokemon).slice(0, 8);
         const pokemonDataArray = [];
 
         for (const samePokemon of allSamePokemons) {
