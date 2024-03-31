@@ -6,7 +6,7 @@
 
 .pokeImgSingle {
     height: 20vh;
-    
+
 }
 
 .suggestion-heading {
@@ -19,7 +19,8 @@
 .container {
     margin-bottom: 5vh;
 }
-.poke-name-single{
+
+.poke-name-single {
     font-weight: 900;
     font-size: 10vh;
 }
@@ -27,29 +28,35 @@
 .pokemon-forms-img {
     height: 20vh;
 }
-.poke-forms{
+
+.poke-forms {
     display: inline-block;
     margin: 2vh;
 }
-.form-heading{
-    font-weight: 700 ;
+
+.form-heading {
+    font-weight: 700;
 }
-table{
+
+table {
     width: 100%;
 }
-.poke-type-gif{
+
+.poke-type-gif {
     height: 10vh;
 }
+
 @media (max-width: 425px) {
-    
+
     .poke-name-single {
-      font-size: 5vh;
+        font-size: 5vh;
     }
+
     .table-responsive {
         overflow-x: auto;
     }
 
-.suggestion-heading {
-    font-size: 30px;
+    .suggestion-heading {
+        font-size: 30px;
+    }
 }
-  }

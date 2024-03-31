@@ -1,79 +1,86 @@
 body {
   text-align: center;
-    background-color: rgb(153, 170, 255);
-    font-family: "Source Code Pro", monospace;
+  background-color: rgb(153, 170, 255);
+  font-family: "Source Code Pro", monospace;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
 
 }
 
-.stat-icon{
+.stat-icon {
   height: 20px;
-  width:20px;
+  width: 20px;
 }
-.car-img {
-    height:50vh;
-    width: 100%;
-    object-fit: cover;
+
+.centered-intro {
+  margin-top: 20vh;
+  justify-content: center;
+  background-color: white;
+  color: rgb(153, 170, 255);
+  padding: 10px;
+
 }
-  
+
+.intro-impact {
+  font-size: 60px;
+}
+
+.button-intro {
+  padding: 0.8em 1.8em;
+  border: 2px solid #000000;
+  position: relative;
+  overflow: hidden;
+  background-color: transparent;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  transition: .3s;
+  font-family: inherit;
+  color: #ffffff;
+  margin-top: 10%;
+}
+
+.button-intro::before {
+  content: '';
+  width: 0;
+  height: 800%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  background: #020202;
+  transition: 1s ease;
+  display: block;
+  z-index: -1;
+}
+
+.button-intro:hover::before {
+  width: 105%;
+}
+
+.button-intro:hover {
+  color: #ffffff;
+}
+
+@media (max-width: 425px) {
   .centered-intro {
-    margin-top: 20vh;
-    justify-content:center;
-    background-color: white;
-    color: rgb(153, 170, 255);
-    padding:10px;
-  
-  }
-  .intro-impact{
-      font-size: 60px;
+    margin-top: 15vh;
   }
 
-  .button-intro {
-    padding: 0.8em 1.8em;
-    border: 2px solid #000000;
-    position: relative;
-    overflow: hidden;
-    background-color: transparent;
-    text-align: center;
-    text-transform: uppercase;
-    font-size: 16px;
-    transition: .3s;
-    font-family: inherit;
-    color: #ffffff;
-    margin-top: 10%;
-   }
-   
-   .button-intro::before {
-    content: '';
-    width: 0;
-    height: 800%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(45deg);
-    background: #020202;
-    transition: 1s ease;
-    display: block;
-    z-index: -1;
-   }
-   
-   .button-intro:hover::before {
-    width: 105%;
-   }
-   
-   .button-intro:hover {
-    color: #ffffff;
-   }
-  
-  
-   @media (max-width: 425px) {
-    .centered-intro {
-      margin-top: 15vh;
-    }
-    .intro-impact{
-        font-size: 30px;
-    }
+  .intro-impact {
+    font-size: 30px;
   }
-   
+
+  button {
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+  }
+}
+
+@media print {
+  body {
+    background-color: white;
+  }
+
+}
