@@ -39,15 +39,6 @@ To install and run the application, follow these steps:
 git clone https://github.com/Sudhanva1999/supply-frame-pokedex.git
 
 ```
-
-  
-
-```bash
-
-cd server
-
-```
-
   
 
 3. Install dependencies:
@@ -58,7 +49,6 @@ npm install
 
 ```
 
-  
 
 4. Start the server:
 
@@ -69,14 +59,11 @@ npm start
 ```
 
   
-
 5. Open your web browser and visit `http://localhost:3000` to view the application.
 
-  
 
 ## Directory Structure
 
-  
 
 -  `/public/css`: Contains all CSS files.
 
@@ -89,42 +76,22 @@ npm start
 -  `/views`: Contains EJS templates for rendering views.
 
   
-
 ## Caching
-
-  
 
 The application implements caching to avoid multiple API calls for the same request parameters. It utilizes Node.js `node-cache` module to store data in memory with a standard time-to-live of about 1 hour. Cached data is stored based on request URLs.
 
 ## Testing
 
-  
 
 To run tests, 
 Change directory to server.
-```bash
 
-cd  server
-
-```
 then use the following command:
 ```bash
 
 npm  test
 
 ```
-
-  
-
-## Note
-
-  
-
-- Ensure you are in the `server` directory to execute npm commands.
-
-
-
-  
 
 
 Enjoy exploring Pokémon data with this web application! 🚀🔥
